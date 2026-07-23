@@ -1,6 +1,6 @@
 import { CalculatedCOI } from '../types';
 import { formatCurrency } from '../utils/calculator';
-import { TrendingDown, TrendingUp, Clock, DollarSign } from 'lucide-react';
+import { TrendingDown, TrendingUp, Clock } from 'lucide-react';
 
 interface MetricCardProps {
   label: string;

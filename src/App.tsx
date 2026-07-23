@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, type ReactNode } from 'react';
 import { PDFViewer, PDFDownloadLink } from '@react-pdf/renderer';
 import { Download, Calculator, Mail, ChevronRight, FileText } from 'lucide-react';
 import { COIData } from './types';
@@ -114,7 +114,7 @@ export default function App() {
                   fileName={pdfFilename}
                   className="flex items-center justify-center gap-2 w-full bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold py-3 px-4 rounded-xl transition-colors text-sm shadow-lg shadow-amber-500/20"
                 >
-                  {({ loading }) =>
+                  {((({ loading }: { loading: boolean }) =>
                     loading ? (
                       <>
                         <div className="w-4 h-4 border-2 border-slate-900/40 border-t-slate-900 rounded-full animate-spin" />
@@ -127,7 +127,7 @@ export default function App() {
                         <ChevronRight size={14} className="ml-auto" />
                       </>
                     )
-                  }
+                  ) as unknown as ReactNode)}
                 </PDFDownloadLink>
               ) : (
                 <button
